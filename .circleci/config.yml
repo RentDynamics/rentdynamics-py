@@ -38,7 +38,7 @@ jobs:
 
       - store_artifacts:
           path: ./xunit
-          
+
       - deploy:
           name: PyPi Deploy
           command: |
