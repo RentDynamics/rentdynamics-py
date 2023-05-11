@@ -15,9 +15,12 @@ class Client:
     development = False
     user_id = None
 
-    def __init__(self, api_key=None, api_secret=None, development=False):
+    def __init__(self, api_key=None, api_secret=None, development=False, base_url=None,
+                 base_development_url=None):
         self.api_key = api_key
         self.api_secret = api_secret
+        self.base_url = base_url
+        self.base_development_url = base_development_url
         self.development = development
 
     def get(self, endpoint):
@@ -27,8 +30,12 @@ class Client:
 
     def get_base_url(self):
         if self.development:
-            return 'https://api-dev.rentdynamics.com'
+            if self.base_development_url:
+                return self.base_development_url
+            return 'https://api.rentdynamics.dev'
         else:
+            if self.base_url:
+                return self.base_url
             return 'https://api.rentdynamics.com'
 
     def get_headers(self, endpoint, body=None):

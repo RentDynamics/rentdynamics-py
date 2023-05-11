@@ -2,7 +2,7 @@ from distutils.core import setup
 
 setup(
     name='rentdynamics',
-    version='1.0.2',
+    version='1.1.0',
     description='Rent Dynamics Client Library',
     author='Rent Dynamics',
     author_email='dev-accounts@rentdynamics.com',
